@@ -23,15 +23,9 @@ const SignInContainer: React.FC = () => {
     } = useSignInContainerLogic();
 
     // redirect logic
-    if (success.value) {
-        setTimeout(() => {
-            setRedirect(true);
-        }, 500);
-    }
+    if (success.value) setTimeout(() => setRedirect(true), 500);
     if (redirect) {
-        setTimeout(() => {
-            signInClear(dispatch);
-        }, 500);
+        setTimeout(() => signInClear(dispatch), 500);
         return <Redirect to={NEKO_PATH}/>;
     }
 

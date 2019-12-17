@@ -1,24 +1,26 @@
 import {emailValidator} from "../../../../features-2-helpers/emailValidator";
-import {signInError} from "./signInBooleanCallbacks";
 import {passwordValidator} from "../../../../features-2-helpers/passwordValidator";
-import {signIn} from "../signInThunk";
 import {ThunkDispatch} from "redux-thunk";
 import {IAppStore} from "../../../../../neko-1-main/main-2-bll/store";
 import {IBooleanActions} from "../../../../features-4-boolean-reducer/booleanActions";
+import {registerError} from "./registerBooleanCallbacks";
+import {register} from "../registerThunk";
 
 type ExtraArgument = {};
 
-export const signInCallback = (
+export const registerCallback = (
     dispatch: ThunkDispatch<IAppStore, ExtraArgument, IBooleanActions>,
     email: string,
     password: string,
-    rememberMe: boolean
+    password2: string,
 ) => () => {
     if (!emailValidator(email)) {
-        signInError(dispatch, 'Email not valid!');
+        registerError(dispatch, 'Email not valid!');
     } else if (!passwordValidator(password)) {
-        signInError(dispatch, 'Password not valid! must be more than 7 characters...');
+        registerError(dispatch, 'Password not valid! must be more than 7 characters...');
+    } else if (password !== password2) {
+        registerError(dispatch,'Passwords do not match!');
     } else {
-        dispatch(signIn(email, password, rememberMe));
+        dispatch(register(email, password));
     }
 };

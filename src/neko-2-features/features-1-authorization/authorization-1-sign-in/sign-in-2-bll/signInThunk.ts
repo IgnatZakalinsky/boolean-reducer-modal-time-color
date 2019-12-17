@@ -28,7 +28,8 @@ export const signIn =
                     signInError(dispatch, data.error);
 
                 } else {
-                    dispatch(nekoSetName(data.name));
+                    dispatch(nekoSetName(data.name)); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
                     setCookie('token', data.token, 60 * 60 * 48); // 2 days
                     signInSuccess(dispatch, true);
 

@@ -1,8 +1,9 @@
 import {ThunkAction, ThunkDispatch} from "redux-thunk";
 import {IAppStore} from "../../../../neko-1-main/main-2-bll/store";
-import {IRegisterActions, registerError, registerLoading, registerSuccess} from "./registerActions";
+import {IRegisterActions} from "./bll-2-redux/registerActions";
 import {RegisterAPI} from "../register-3-dal/RegisterAPI";
 import {passwordCoding} from "../../../features-2-helpers/passwordCoding";
+import {registerError, registerLoading, registerSuccess} from "./bll-1-callbacks/registerBooleanCallbacks";
 
 type Return = void;
 type ExtraArgument = {};
@@ -12,21 +13,21 @@ export const register =
     (email: string, password: string): ThunkAction<Return, IAppStore, ExtraArgument, IRegisterActions> =>
         async (dispatch: ThunkDispatch<IAppStore, ExtraArgument, IRegisterActions>, getStore: IGetStore) => {
 
-            dispatch(registerLoading(true));
+            registerLoading(dispatch, true);
 
             try {
                 const data = await RegisterAPI.register(email, passwordCoding(password));
 
                 if (data.error) {
-                    dispatch(registerError(data.error));
+                    registerError(dispatch, data.error);
 
                 } else {
-                    dispatch(registerSuccess(true));
+                    registerSuccess(dispatch, true);
 
                     console.log('Neko Register Success!', data)
                 }
             } catch (e) {
-                dispatch(registerError(e.message));
+                registerError(dispatch, e.message);
 
                 console.log('Neko Register Error!', e)
             }

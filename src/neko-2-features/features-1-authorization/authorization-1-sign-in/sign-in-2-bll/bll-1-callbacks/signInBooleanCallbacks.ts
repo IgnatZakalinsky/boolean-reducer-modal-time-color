@@ -1,11 +1,11 @@
 import {Dispatch} from "redux";
-import {SIGN_IN_ACTION_NAMES} from "../bll-2-redux/signInActions";
 import {
     booleanClear,
     booleanError,
     booleanLoading,
     booleanSuccess
 } from "../../../../features-4-boolean-reducer/booleanCallbacks";
+import {SIGN_IN_ACTION_NAMES} from "../bll-2-redux/signInActions";
 
 export const signInLoading = (dispatch: Dispatch, loading: boolean) => {
     booleanLoading(dispatch, SIGN_IN_ACTION_NAMES, loading);
