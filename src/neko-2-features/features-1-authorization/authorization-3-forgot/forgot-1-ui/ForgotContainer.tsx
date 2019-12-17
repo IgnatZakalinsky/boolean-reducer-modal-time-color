@@ -1,54 +1,41 @@
-import React, {useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {IAppStore} from "../../../../neko-1-main/main-2-bll/store";
+import React from 'react';
 import Forgot from './Forgot';
-import {forgotError, forgotSuccess} from "../forgot-2-bll/forgotActions";
-import {forgot} from "../forgot-2-bll/forgotThunks";
-import {emailValidator} from "../../../features-2-helpers/emailValidator";
 import {Redirect} from "react-router";
 import {SIGN_IN_PATH} from "../../../../neko-1-main/main-1-ui/Routes";
+import {useForgotContainerLogic} from "../forgot-2-bll/bll-1-callbacks/useForgotContainerLogic";
+import {forgotClear} from "../forgot-2-bll/bll-1-callbacks/forgotBooleanCallbacks";
 
 const ForgotContainer: React.FC = () => {
-    // redux
-    const {loading, error, success} = useSelector((store: IAppStore) => store.forgot);
-    const dispatch = useDispatch();
+    const {
+        loading, error, success, dispatch,
 
-    // local state
-    const [email, setEmail] = useState('test@emali.nya');
+        email,
+        setEmailCallback,
 
-    const [redirect, setRedirect] = useState(false);
+        redirect,
+        setRedirect,
 
-    // callbacks
-    const forgotCallback = () => {
-        if (emailValidator(email)) {
-            dispatch(forgot(email));
-        } else {
-            dispatch(forgotError('Email not valid!'));
-        }
-    };
+        forgot,
+    } = useForgotContainerLogic();
 
     // redirect logic
-    if (success) {
-        setTimeout(() => setRedirect(true), 500)
-    }
+    if (success.value) setTimeout(() => setRedirect(true), 500);
     if (redirect) {
-        setTimeout(() => {
-            dispatch(forgotSuccess(false))
-        }, 500);
+        setTimeout(() => forgotClear(dispatch), 500);
         return <Redirect to={SIGN_IN_PATH}/>;
     }
 
     return (
         <Forgot
-            loading={loading}
-            error={error}
-            success={success}
+            loading={loading.value}
+            error={error.data.message || ''}
+            success={success.value}
 
             email={email}
 
-            forgotSetEmailCallback={setEmail}
+            forgotSetEmailCallback={setEmailCallback}
 
-            forgotCallback={forgotCallback}
+            forgotCallback={forgot}
         />
     );
 };

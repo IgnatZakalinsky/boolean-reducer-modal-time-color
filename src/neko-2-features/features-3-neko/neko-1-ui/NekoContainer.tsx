@@ -1,36 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {IAppStore} from "../../../neko-1-main/main-2-bll/store";
+import React from 'react';
 import Neko from "./Neko";
-import {nekoSetName} from "../neko-2-bll/nekoActions";
 import {Redirect} from "react-router";
-import {getCookie, setCookie} from "../../features-2-helpers/cookies";
 import {SIGN_IN_PATH} from "../../../neko-1-main/main-1-ui/Routes";
-import {getMe} from "../neko-2-bll/nekoThunks";
+import {useNekoContainerLogic} from "../neko-2-bll/bll-1-callbacks/useNekoContainerLogic";
 
 const NekoContainer: React.FC = () => {
-    // redux
-    const {name, loading, error} = useSelector((store: IAppStore) => store.neko);
-    const dispatch = useDispatch();
+    const {
+        loading, error, success, dispatch,
+        name,
 
-    // local state
-    const [show, setShow] = useState(false);
-    const [redirect, setRedirect] = useState(false);
+        show,
+        setShow,
 
-    // useEffects
-    useEffect(() => {
-        dispatch(getMe());
-    }, []);
-    useEffect(() => {
-        if (!getCookie('token')) setRedirect(true);
-        else setShow(true);
-    }, [name]);
+        redirect,
+        setRedirect,
 
-    // callbacks
-    const logoutCallback = () => {
-        setCookie('token', '', -1000);
-        dispatch(nekoSetName(''));
-    };
+        logout,
+    } = useNekoContainerLogic();
 
     // redirect logic
     if (redirect) {
@@ -53,12 +39,12 @@ const NekoContainer: React.FC = () => {
 
     return (
         <Neko
-            loading={loading}
-            error={error}
+            loading={loading.value}
+            error={error.data.message || ''}
 
             name={name}
 
-            logoutCallback={logoutCallback}
+            logoutCallback={logout}
         />
     );
 };

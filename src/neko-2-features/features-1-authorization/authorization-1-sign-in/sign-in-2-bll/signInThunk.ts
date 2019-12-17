@@ -3,7 +3,7 @@ import {IAppStore} from "../../../../neko-1-main/main-2-bll/store";
 import {ISignInActions} from "./bll-2-redux/signInActions";
 import {SignInAPI} from "../sign-in-3-dal/SignInAPI";
 import {passwordCoding} from "../../../features-2-helpers/passwordCoding";
-import {INekoActions, nekoSetName} from "../../../features-3-neko/neko-2-bll/nekoActions";
+import {INekoActions, nekoSetName} from "../../../features-3-neko/neko-2-bll/bll-2-redux/nekoActions";
 import {setCookie} from "../../../features-2-helpers/cookies";
 import {IBooleanActions} from "../../../features-4-boolean-reducer/booleanActions";
 import {signInError, signInLoading, signInSuccess} from "./bll-1-callbacks/signInBooleanCallbacks";
@@ -28,7 +28,7 @@ export const signIn =
                     signInError(dispatch, data.error);
 
                 } else {
-                    dispatch(nekoSetName(data.name)); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    dispatch(nekoSetName(data.name));
 
                     setCookie('token', data.token, 60 * 60 * 48); // 2 days
                     signInSuccess(dispatch, true);
