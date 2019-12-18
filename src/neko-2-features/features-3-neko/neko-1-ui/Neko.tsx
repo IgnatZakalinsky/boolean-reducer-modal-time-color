@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
+import {TEST_MODALS_PATH} from "../../../neko-1-main/main-1-ui/Routes";
 
 interface NekoProps {
     loading: boolean;
@@ -42,6 +44,8 @@ const Neko: React.FC<NekoProps> = (
             }
 
             <button onClick={logoutCallback}>logout</button>
+
+            <NavLink to={TEST_MODALS_PATH}>Modals</NavLink>
         </div>
     );
 };
