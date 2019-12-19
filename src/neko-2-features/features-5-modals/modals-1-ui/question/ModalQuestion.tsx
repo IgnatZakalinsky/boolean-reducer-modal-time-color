@@ -50,10 +50,12 @@ const ModalQuestion: React.FC<IModalQuestion> = (
         <Modal
             enableBackground={enableBackground}
             backgroundOnClick={backgroundOnClick}
+            backgroundStyle={backgroundStyle}
 
             width={width}
             height={height}
             modalOnClick={modalOnClick}
+            modalStyle={modalStyle}
 
             show={show}
         >

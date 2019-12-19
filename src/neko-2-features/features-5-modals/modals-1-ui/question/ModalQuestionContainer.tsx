@@ -30,8 +30,8 @@ const ModalQuestionContainer: React.FC = () => {
                 enableBackground={true}
                 backgroundOnClick={() => setShow(false)}
 
-                width={500}
-                height={300}
+                width={300}
+                height={200}
             />
         </>
     );

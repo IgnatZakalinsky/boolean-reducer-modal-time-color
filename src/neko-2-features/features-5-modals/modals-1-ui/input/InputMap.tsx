@@ -26,7 +26,7 @@ const InputMap: React.FC<IInputMap> = (
         setModalInputData(modalInputData.map(iD => iD.id === id ? {...iD, value} : iD));
     };
     useEffect(() => {
-        setSaveInputs({f: successCloseModal})
+        setSaveInputs({f: successCloseModal}) // subscribe
     }, [modalInputData]);
 
     const successCloseModal = () => {

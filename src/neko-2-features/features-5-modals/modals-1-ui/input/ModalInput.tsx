@@ -58,6 +58,7 @@ const ModalInput: React.FC<IModalInput> = (
     const successCloseModal = () => {
         saveInputs.f();
         setAnswer(answerData || '');
+        setSaveInputs({f: () => {}}); // unsubscribe
         close();
     };
 
@@ -68,10 +69,12 @@ const ModalInput: React.FC<IModalInput> = (
                 setAnswerData(answer);
                 backgroundOnClick()
             }}
+            backgroundStyle={backgroundStyle}
 
             width={width}
             height={height}
             modalOnClick={modalOnClick}
+            modalStyle={modalStyle}
 
             show={show}
         >
@@ -95,7 +98,7 @@ const ModalInput: React.FC<IModalInput> = (
                 )}
                 <InputMap
                     inputData={inputData}
-                    setSaveInputs={setSaveInputs}
+                    setSaveInputs={setSaveInputs} // subscribe
 
                     inputStyles={inputStyles}
                 />
