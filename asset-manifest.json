@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/boolean-reducer-modal-time-color/static/css/main.ad277072.chunk.css",
+    "main.js": "/boolean-reducer-modal-time-color/static/js/main.21e79ae4.chunk.js",
+    "main.js.map": "/boolean-reducer-modal-time-color/static/js/main.21e79ae4.chunk.js.map",
+    "runtime-main.js": "/boolean-reducer-modal-time-color/static/js/runtime-main.d44f64be.js",
+    "runtime-main.js.map": "/boolean-reducer-modal-time-color/static/js/runtime-main.d44f64be.js.map",
+    "static/css/2.826c19ff.chunk.css": "/boolean-reducer-modal-time-color/static/css/2.826c19ff.chunk.css",
+    "static/js/2.4387eef6.chunk.js": "/boolean-reducer-modal-time-color/static/js/2.4387eef6.chunk.js",
+    "static/js/2.4387eef6.chunk.js.map": "/boolean-reducer-modal-time-color/static/js/2.4387eef6.chunk.js.map",
+    "index.html": "/boolean-reducer-modal-time-color/index.html",
+    "precache-manifest.878c7ebe4c465722254cade9ba98937b.js": "/boolean-reducer-modal-time-color/precache-manifest.878c7ebe4c465722254cade9ba98937b.js",
+    "service-worker.js": "/boolean-reducer-modal-time-color/service-worker.js",
+    "static/css/2.826c19ff.chunk.css.map": "/boolean-reducer-modal-time-color/static/css/2.826c19ff.chunk.css.map",
+    "static/css/main.ad277072.chunk.css.map": "/boolean-reducer-modal-time-color/static/css/main.ad277072.chunk.css.map",
+    "static/js/2.4387eef6.chunk.js.LICENSE": "/boolean-reducer-modal-time-color/static/js/2.4387eef6.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d44f64be.js",
+    "static/css/2.826c19ff.chunk.css",
+    "static/js/2.4387eef6.chunk.js",
+    "static/css/main.ad277072.chunk.css",
+    "static/js/main.21e79ae4.chunk.js"
+  ]
+}
