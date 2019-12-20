@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ForgotProps {
+interface IForgotProps {
     loading: boolean;
     error: string;
     success: boolean;
@@ -12,7 +12,7 @@ interface ForgotProps {
     forgotCallback: () => void;
 }
 
-const Forgot: React.FC<ForgotProps> = (
+const Forgot: React.FC<IForgotProps> = (
     {
         loading,
         error,

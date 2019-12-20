@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import {FORGOT_PATH, REGISTER_PATH} from "../../../../neko-1-main/main-1-ui/Routes";
 
-interface SignInProps {
+interface ISignInProps {
     loading: boolean;
     error: string;
     success: boolean;
@@ -18,7 +18,7 @@ interface SignInProps {
     signInCallback: () => void;
 }
 
-const SignIn: React.FC<SignInProps> = (
+const SignIn: React.FC<ISignInProps> = (
     {
         loading,
         error,

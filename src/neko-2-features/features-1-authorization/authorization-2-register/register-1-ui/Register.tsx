@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface RegisterProps {
+interface IRegisterProps {
     loading: boolean;
     error: string;
     success: boolean;
@@ -16,7 +16,7 @@ interface RegisterProps {
     registerCallback: () => void;
 }
 
-const Register: React.FC<RegisterProps> = (
+const Register: React.FC<IRegisterProps> = (
     {
         loading,
         error,

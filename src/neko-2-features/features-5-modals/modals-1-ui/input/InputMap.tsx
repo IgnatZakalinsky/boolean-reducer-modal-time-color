@@ -1,6 +1,6 @@
 import React, {CSSProperties, useEffect, useMemo, useState} from 'react';
 
-type IInputData = [string, (value: string) => void];
+export type IInputData = [string, (value: string) => void];
 
 interface IInputMap {
     inputData?: IInputData[];

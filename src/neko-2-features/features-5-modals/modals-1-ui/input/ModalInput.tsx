@@ -1,8 +1,6 @@
 import React, {CSSProperties, ReactNode, useState} from 'react';
 import Modal from "../Modal";
-import InputMap from "./InputMap";
-
-type IInputData = [string, (value: string) => void];
+import InputMap, {IInputData} from "./InputMap";
 
 interface IModalInput {
     show: boolean;

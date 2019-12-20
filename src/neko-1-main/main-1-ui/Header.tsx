@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {NavLink} from "react-router-dom";
-import {FORGOT_PATH, NEKO_PATH, REGISTER_PATH, SIGN_IN_PATH, TEST_MODALS_PATH} from './Routes';
+import {FORGOT_PATH, NEKO_PATH, REGISTER_PATH, SIGN_IN_PATH, TEST_MODALS_PATH, TEST_TIME_PATH} from './Routes';
 
 const Header: React.FC = () => {
     const [show, setShow] = useState(false);
@@ -24,6 +24,7 @@ const Header: React.FC = () => {
             {show && <NavLink to={NEKO_PATH}>neko</NavLink>}
 
             {show && <NavLink to={TEST_MODALS_PATH}>modals</NavLink>}
+            {show && <NavLink to={TEST_TIME_PATH}>time</NavLink>}
 
 
         </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {TEST_MODALS_PATH} from "../../../neko-1-main/main-1-ui/Routes";
+import {TEST_MODALS_PATH, TEST_TIME_PATH} from "../../../neko-1-main/main-1-ui/Routes";
 
-interface NekoProps {
+interface INekoProps {
     loading: boolean;
     error: string;
 
@@ -11,7 +11,7 @@ interface NekoProps {
     logoutCallback: () => void;
 }
 
-const Neko: React.FC<NekoProps> = (
+const Neko: React.FC<INekoProps> = (
     {
         loading,
         error,
@@ -46,6 +46,7 @@ const Neko: React.FC<NekoProps> = (
             <button onClick={logoutCallback}>logout</button>
 
             <NavLink to={TEST_MODALS_PATH}>Modals</NavLink>
+            <NavLink to={TEST_TIME_PATH}>Time</NavLink>
         </div>
     );
 };
